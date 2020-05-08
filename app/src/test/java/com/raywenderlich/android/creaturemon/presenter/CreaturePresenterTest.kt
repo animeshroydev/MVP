@@ -1,9 +1,6 @@
 package com.raywenderlich.android.creaturemon.presenter
 
-import com.raywenderlich.android.creaturemon.model.AttributeType
-import com.raywenderlich.android.creaturemon.model.Creature
-import com.raywenderlich.android.creaturemon.model.CreatureAttributes
-import com.raywenderlich.android.creaturemon.model.CreatureGenerator
+import com.raywenderlich.android.creaturemon.model.*
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -15,6 +12,9 @@ class CreaturePresenterTest {
     private lateinit var presenter: CreaturePresenter
 
     @Mock
+    lateinit var mockRepository: CreatureRepository
+
+    @Mock
     lateinit var view: CreatureContract.View
 
     @Mock
@@ -23,7 +23,7 @@ class CreaturePresenterTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        presenter = CreaturePresenter(mockGenerator)
+        presenter = CreaturePresenter(mockGenerator, mockRepository)
         presenter.setView(view)
     }
 
