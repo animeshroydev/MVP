@@ -1,5 +1,6 @@
 package com.raywenderlich.android.creaturemon.presenter
 
+import androidx.annotation.DrawableRes
 import com.raywenderlich.android.creaturemon.model.AttributeType
 
 interface CreatureContract {
@@ -11,5 +12,8 @@ interface CreatureContract {
         fun isDrawableSelected(): Boolean
     }
 
-    interface View
+    interface View {
+        fun showHitPoints(hitPoints: String)
+        fun showAvatarDrawable(@DrawableRes resourceId: Int)
+    }
 }
